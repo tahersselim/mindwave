@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "./page.module.css";
 import Image from "next/image";
-import Button from "@/components/button/button";
+import Button from "@/components/button/Button";
 import { Span } from "next/dist/trace";
 
 const About = () => {
