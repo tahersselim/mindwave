@@ -1,0 +1,71 @@
+.container {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .logo:hover {
+    font-size: 30px;
+    text-decoration: underline;
+  }
+  
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .link:hover {
+    font-size: 18px;
+    text-decoration: underline;
+    color: #957056;
+  }
+  
+  .logout {
+    padding: 5px;
+    border: none;
+    background-color: #957056;
+    color: #c6c4bb;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .logout:hover {
+    background: #462c23;
+    color: #c6c4bb;
+    border: 0.1rem solid #c6c4bb;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .logo {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  
+    .links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .link {
+      font-size: 16px;
+    }
+  
+    .logout {
+      margin-top: 10px;
+    }
+  }
+  

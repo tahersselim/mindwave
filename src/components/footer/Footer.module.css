@@ -1,0 +1,40 @@
+.containerprivacy:hover {
+    font-size: 16px;
+    text-decoration: underline;
+    color: #957056;
+}
+
+.containerterms:hover {
+    font-size: 16px;
+    text-decoration: underline;
+    color: #957056;
+}
+.container {
+    font-size: 14px;
+    height: 30px;
+    display: flex;
+    margin-top:-5px;
+    justify-content: center;
+}
+.mindwavecontainer {
+    font-size: 14px;
+    height: 30px;
+    display: flex;
+    margin:auto;
+    justify-content: center;
+}
+.iconscontainer{
+    height: 30px;
+    display: flex;
+    margin-top:-5px;
+    justify-content: center;
+    gap: 15px;
+}
+
+.iconcontainer{
+    opacity: 0.7;
+    cursor: pointer;
+}
+.iconcontainer:hover{
+    opacity: 100%;
+}
