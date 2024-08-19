@@ -8,7 +8,12 @@ const About = () => {
   return (
     <div className={Styles.container}>
       <div className={Styles.imgcontainer}>
-        <Image src="/img.png" alt="writing" fill={true} className={Styles.img} />
+        <Image
+          src="/img.png"
+          alt="writing"
+          fill={true}
+          className={Styles.img}
+        />
       </div>
       <div className={Styles.textcontainer}>
         <div className={Styles.item}>
@@ -18,7 +23,7 @@ const About = () => {
             Our vision is to create a space where thoughts flow freely and
             creativity is celebrated. We aim to build a community of thinkers,
             writers, and dreamers who are passionate about sharing their
-            insights with the world. Whether you are here to learn, to be
+            insights with the world. Whether you&apos;re here to learn, to be
             inspired, or to contribute, MindWave is your platform for exploring
             the endless possibilities that the written word offers.
           </p>
@@ -34,7 +39,7 @@ const About = () => {
             individuals. Our journey is just beginning, and we are excited to
             have you join us as we continue to grow and evolve.
           </p>
-            <Button url="contact" text="Contact" />
+          <Button url="contact" text="Contact" />
         </div>
       </div>
     </div>
