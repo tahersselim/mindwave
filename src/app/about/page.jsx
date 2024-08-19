@@ -23,7 +23,7 @@ const About = () => {
             Our vision is to create a space where thoughts flow freely and
             creativity is celebrated. We aim to build a community of thinkers,
             writers, and dreamers who are passionate about sharing their
-            insights with the world. Whether you&apos;re here to learn, to be
+            insights with the world. Whether you are here to learn, to be
             inspired, or to contribute, MindWave is your platform for exploring
             the endless possibilities that the written word offers.
           </p>
