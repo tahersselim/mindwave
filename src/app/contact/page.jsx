@@ -5,7 +5,7 @@ import React from 'react'
 const Contact = () => {
   return (
     <div className={Styles.contact}>
-          <Image src="/maintenance.jpg" width={1100} height={500}/>
+          <Image src="/maintenance.jpg" width={1100} height={500} alt="maintenance"/>
     </div>
   )
 }

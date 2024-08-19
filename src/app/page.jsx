@@ -20,6 +20,7 @@ export default function Home() {
           height={250}
           width={200}
           className={styles.img}
+          alt="hero"
         />
       </div>
     </div>
