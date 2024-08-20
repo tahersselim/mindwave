@@ -2,14 +2,15 @@ import React from "react";
 import Styles from "./page.module.css";
 import Image from "next/image";
 
-const BlogPost = () => {
+const BlogPost = ({params}) => {
+  console.log(params);
+  
   return (
     <div className={Styles.container}>
       <div className={Styles.top}>
         <div className={Styles.info}>
           <h1 className={Styles.title}>
-            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit
+          lorem ipsum
           </h1>
           <p className={Styles.desc}>
             Lorem Ipsum is simply dummy text of the printing and typesetting

@@ -1,22 +1,43 @@
-.container{
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
-    gap: 50px;
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 50px;
 }
-.info{
-    display: flex;
-}
-.img{
-    object-fit: cover;
-}
-.content{
 
+.maintitle{
+    font-size: 80px;
 }
-.title{
-    margin-bottom: 10px;
+.container:nth-child(odd) {
+  flex-direction: row;
 }
-.desc{
-    font-size: 18px;
-    color:#c6c4bb ;
+
+.container:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.imgcontainer {
+  flex: 1;
+}
+
+.info {
+  flex: 1;
+}
+
+.img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.content {
+  /* Additional styling for content if needed */
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 18px;
+  color: #c6c4bb;
 }
