@@ -9,32 +9,48 @@
     text-decoration: underline;
     color: #957056;
 }
+
 .container {
     font-size: 14px;
     height: 30px;
     display: flex;
-    margin-top:-5px;
+    margin-top: -5px;
     justify-content: center;
 }
+
 .mindwavecontainer {
     font-size: 14px;
     height: 30px;
     display: flex;
-    margin:auto;
+    margin: auto;
     justify-content: center;
 }
-.iconscontainer{
+
+.iconscontainer {
     height: 30px;
     display: flex;
-    margin-top:-5px;
+    margin-top: -5px;
     justify-content: center;
     gap: 15px;
 }
 
-.iconcontainer{
+.iconcontainer {
     opacity: 0.7;
     cursor: pointer;
 }
-.iconcontainer:hover{
+
+.iconcontainer:hover {
     opacity: 100%;
+}
+
+.dark {
+    display: none;
+    margin-left: 48%;
+}
+
+@media (max-width: 768px) {
+
+    .dark {
+        display: block;
+    }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Styles from "./Footer.module.css";
 import Image from "next/image";
+import DarkMode from "../DarkMode/DarkMode";
 const Footer = () => {
   return (
     <div>
@@ -56,6 +57,9 @@ const Footer = () => {
           alt="socialMedia"
         />
       </div>
+      <div className={Styles.dark}>
+       <DarkMode />
+       </div>
     </div>
   );
 };

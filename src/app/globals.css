@@ -16,6 +16,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.light{
+  background-color: white;
+  color: #462c23;
+}
+.dark{
+  background-color: #462c23;
+  color : #c6c4bb;
+}
+
 
 .container {
   max-width: 1366px;

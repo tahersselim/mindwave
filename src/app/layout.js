@@ -2,6 +2,7 @@ import { Inter,DM_Serif_Text } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import { ThemeProvider } from "@/context/Themecontext";
 
 const inter = Inter({ subsets: ["latin"] });
 const dmSerifText = DM_Serif_Text({
@@ -17,11 +18,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={dmSerifText.className}>
+        <ThemeProvider>
         <div className="container">
           <Navbar />
           {children}
           <Footer />
         </div>
+        </ThemeProvider>
       </body>
     </html>
   );
