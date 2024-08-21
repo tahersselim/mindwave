@@ -1,23 +1,34 @@
 import React from "react";
 import Styles from "./page.module.css";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-const BlogPost = ({params}) => {
-  console.log(params);
-  
+async function getData(id) {
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    return notFound;
+  }
+  return res.json();
+}
+
+export async function generateMetadata({ params }) {
+  const post = await getData(params.id);
+  return {
+    title: post.title,
+    description: post.desc,
+  };
+}
+const BlogPost = async ({ params }) => {
+  const data = await getData(params.id);
+
   return (
     <div className={Styles.container}>
       <div className={Styles.top}>
         <div className={Styles.info}>
-          <h1 className={Styles.title}>
-          lorem ipsum
-          </h1>
-          <p className={Styles.desc}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industrys standard dummy text
-            ever since the 1500s
-          </p>
-
+          <h1 className={Styles.title}>{data.title}</h1>
+          <p className={Styles.desc}>{data.desc}</p>
           <div className={Styles.author}>
             <Image
               src="/avatar.jpg"
@@ -26,12 +37,12 @@ const BlogPost = ({params}) => {
               height={40}
               className={Styles.avatar}
             />
-            <span className={Styles.username}>username</span>
+            <span className={Styles.username}>{data.username}</span>
           </div>
         </div>
         <div className={Styles.imgcontainer}>
           <Image
-            src="/avatar.jpg"
+            src={data.img}
             alt="avatar"
             fill={true}
             className={Styles.img}
@@ -39,23 +50,7 @@ const BlogPost = ({params}) => {
         </div>
       </div>
       <div className={Styles.content}>
-        <p className={Styles.text}>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using Content here, content here, making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for lorem ipsum will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose , when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
+        <p className={Styles.text}>{data.content}</p>
       </div>
     </div>
   );

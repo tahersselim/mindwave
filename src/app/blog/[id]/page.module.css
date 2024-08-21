@@ -10,7 +10,7 @@
 .top {
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 500px;
     align-items: stretch; /* Ensures both .info and .imgcontainer have the same height */
 }
 
@@ -18,7 +18,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distributes the content evenly within the height */
+    justify-content: space-evenly; /* Distributes the content evenly within the height */
     gap: 20px;
 }
 
@@ -54,8 +54,11 @@
     flex: 1;
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 250px;
     margin-top: 20px;
+    min-width: 400px;
+    min-height: 250px;
+
 }
 
 .img {

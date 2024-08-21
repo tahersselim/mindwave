@@ -71,13 +71,15 @@ const Contact = () => {
             placeholder="Your Message"
             required
           ></textarea>
-          <div >
-          <button
-            className={Styles.button}
-            type="submit" 
-             disabled={isLoading}>
-            {isLoading ? "Sending..." : "Submit"}
-          </button></div>
+          <div>
+            <button
+              className={Styles.button}
+              type="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? "Sending..." : "Submit"}
+            </button>
+          </div>
           {status && <p className="statusMessage">{status}</p>}
         </form>
       </div>
@@ -86,5 +88,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-

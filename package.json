@@ -11,9 +11,14 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "bcryptjs": "^2.4.3",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.3",
     "next": "14.2.5",
+    "next-auth": "^5.0.0-beta.20",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "eslint": "^8",

@@ -3,7 +3,12 @@ import Styles from "./page.module.css";
 import Image from "next/image";
 import Button from "@/components/button/Button";
 import { Span } from "next/dist/trace";
-
+export const metadata = {
+  title:
+    "MindWave Blog - About ",
+  description:
+    "MindWave Blog offers in-depth articles and thought-provoking discussions on technology, creativity, and innovation. Explore a wide range of topics and stay ahead with the latest trends.",
+};
 const About = () => {
   return (
     <div className={Styles.container}>

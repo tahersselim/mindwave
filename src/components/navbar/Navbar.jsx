@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Styles from "./Navbar.module.css";
 import DarkMode from "../DarkMode/DarkMode";
+import { signOut, useSession } from "next-auth/react";
 
 const links = [
   { id: 1, title: "Home", url: "/" },
@@ -15,6 +16,7 @@ const links = [
 ];
 
 const Navbar = () => {
+  const session = useSession();
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -31,14 +33,11 @@ const Navbar = () => {
               {link.title}
             </Link>
           ))}
-          <button
-            className={Styles.logout}
-            onClick={() => {
-              console.log("logged out");
-            }}
-          >
-            Logout
-          </button>
+          {session.status === "authenticated" && (
+            <button className={Styles.logout} onClick={signOut}>
+              Logout
+            </button>
+          )}
         </div>
 
         <Image

@@ -3,11 +3,13 @@
   align-items: center;
   margin-bottom: 50px;
   gap: 50px;
+  
 }
 
-.maintitle{
-    font-size: 80px;
+.maintitle {
+  font-size: 80px;
 }
+
 .container:nth-child(odd) {
   flex-direction: row;
 }
@@ -18,10 +20,10 @@
 
 .imgcontainer {
   flex: 1;
-}
-
-.info {
-  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  
 }
 
 .img {
@@ -30,7 +32,7 @@
 }
 
 .content {
-  /* Additional styling for content if needed */
+ flex: 1;
 }
 
 .title {
@@ -40,4 +42,42 @@
 .desc {
   font-size: 18px;
   color: #c6c4bb;
+}
+
+/* Responsive design for screens smaller than 768px (tablets, phones) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .maintitle {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .imgcontainer,
+  .info {
+      height: 250px;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+  }
+
+  .desc {
+    font-size: 16px;
+  }
+}
+
+/* Responsive design for screens smaller than 480px (small phones) */
+@media (max-width: 480px) {
+  .maintitle {
+    font-size: 50px;
+  }
+
+  .desc {
+    font-size: 14px;
+  }
 }

@@ -1,0 +1,121 @@
+/* .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.input{
+    padding: 20px;
+    background-color: transparent;
+    border: 2px solid #bbb;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+} */
+
+/* Container Styles */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 40px 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.input {
+    font-size: medium;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    color: #c6c4bb;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #c6c4bb30;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border-color: #c6c4bb30;
+    outline: none;
+}
+
+.button {
+    padding: 20px;
+    cursor: pointer;
+    background-color: #957056;
+    color: #c6c4bb;
+    border-radius: 5px;
+    border: none;
+    width: max-content;
+}
+
+.button:hover {
+    background: #462c23;
+    color: #c6c4bb;
+    border: 0.1rem solid #c6c4bb;
+}
+.buttoon {
+    padding: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #c6c4bb;
+    border-radius: 5px;
+    width: max-content;
+    margin-bottom: 20px;
+    border: 0.1rem solid #c6c4bb;
+
+}
+
+.buttoon:hover {
+    background: #957056;
+    color: #c6c4bb;
+    border: none;
+}
+
+/* Link Styles */
+/* a {
+    margin-top: 20px;
+    color: #0070f3;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    text-decoration: underline;
+} */
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    .input {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* a {
+        font-size: 0.8rem;
+    } */
+}

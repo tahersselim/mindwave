@@ -16,6 +16,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.theme{
+  transition: 2s all ease;
+}
 .light{
   background-color: white;
   color: #462c23;
