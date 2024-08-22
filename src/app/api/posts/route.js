@@ -3,10 +3,13 @@ import Connect from "@/utils/db";
 import Post from "@/models/Post";
 
 export const GET = async (request) => {
+  const url = new URL(request.url);
+  const username = url.searchParams.get("username");
+  console.log({ username });
 
   try {
     await Connect();
-    const Posts = await Post.find();
+    const Posts = await Post.find(username && { username });
     return new NextResponse(JSON.stringify(Posts), { status: 200 });
   } catch (error) {
     console.error("GET Request Error:", error);

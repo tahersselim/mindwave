@@ -31,7 +31,7 @@ const BlogPost = async ({ params }) => {
           <p className={Styles.desc}>{data.desc}</p>
           <div className={Styles.author}>
             <Image
-              src="/avatar.jpg"
+              src="/user.png"
               alt="avatar"
               width={40}
               height={40}
