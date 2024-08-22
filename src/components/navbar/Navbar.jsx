@@ -33,9 +33,13 @@ const Navbar = () => {
               {link.title}
             </Link>
           ))}
-          {session.status === "authenticated" && (
+          {session.status === "authenticated" ? (
             <button className={Styles.logout} onClick={signOut}>
               Logout
+            </button>
+          ) : (
+            <button className={Styles.logout}>
+              <a href="/dashboard/login">Login</a>
             </button>
           )}
         </div>
@@ -62,9 +66,13 @@ const Navbar = () => {
               {link.title}
             </Link>
           ))}
-          {session.status === "authenticated" && (
+          {session.status === "authenticated" ? (
             <button className={Styles.logoutbutton} onClick={signOut}>
               logout
+            </button>
+          ) : (
+            <button className={Styles.logoutbutton} onClick={signOut}>
+              login
             </button>
           )}
         </div>
