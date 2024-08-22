@@ -54,7 +54,7 @@ const Login = () => {
       </button>
       <a href="/dashboard/register">
         <p className={Styles.register} >
-          Don't have an account press here
+        Don&apos;t have an account? Press here
         </p>
       </a>
     </div>
