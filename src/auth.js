@@ -17,11 +17,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       async authorize(credentials) {
         await Connect();
         try {
+          if (!credentials.email || !credentials.password) {
+            throw new Error("Email and password are required");
+          }
+
+          const user = await User.findOne({ email: credentials.email });
           
-          const user = await User.findOne({ 
-            email: credentials.email,
-           });
-           
           if (user) {
             const isPasswordCorrect = await bcrypt.compare(
               credentials.password,
@@ -30,13 +31,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             if (isPasswordCorrect) {
               return user; 
             } else {
-              throw new Error("Wrong Credentials!");
+              throw new Error("Incorrect password");
             }
           } else {
-            throw new Error("User not found!");
+            throw new Error("User not found");
           }
         } catch (err) {
-          throw new Error(err);
+          console.error("Authentication error:", err.message);
+          throw new Error("Authentication error: " + err.message);
         }
       },
     }),
