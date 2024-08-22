@@ -66,6 +66,16 @@
   height: fit-content;
 }
 
+.logoutbutton {
+  font-size: 18px;
+  text-align: left;
+  background-color: #d14d4da4;
+  text-decoration: none;
+  border: none;
+  color: #c6c4bb;
+
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .mobmenu {

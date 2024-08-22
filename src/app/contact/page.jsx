@@ -1,12 +1,23 @@
 "use client";
 import Image from "next/image";
 import Styles from "./page.module.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useSession } from "next-auth/react";
 
 const Contact = () => {
+  const { data: session, status } = useSession();
+  const [name, setName] = useState("Your Name");
+  const [email, setEmail] = useState("Your Email");
+
+  useEffect(() => {
+    if (status === "authenticated" && session?.user) {
+      setName(session.user.name);
+      setEmail(session.user.email);
+    }
+  }, [status, session]);
   const form = useRef();
-  const [status, setStatus] = useState("");
+  const [statuS, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const sendEmail = (e) => {
@@ -53,14 +64,14 @@ const Contact = () => {
           <input
             type="text"
             className={Styles.input}
-            placeholder="Your Name"
+            placeholder={name}
             name="your_name"
             required
           />
           <input
             type="email"
             className={Styles.input}
-            placeholder="Your Email"
+            placeholder={email}
             name="your_email"
             required
           />
@@ -80,7 +91,7 @@ const Contact = () => {
               {isLoading ? "Sending..." : "Submit"}
             </button>
           </div>
-          {status && <p className="statusMessage">{status}</p>}
+          {statuS && <p className="statusMessage">{statuS}</p>}
         </form>
       </div>
     </div>

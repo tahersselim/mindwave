@@ -1,0 +1,153 @@
+/* .container{
+    display: flex;
+    gap: 100px;
+}
+.posts{
+    flex: 1;
+}
+.new{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.post{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0px;
+}
+.img{
+    object-fit: cover;
+}
+.imgcontainer{
+    position: relative;
+    width: 200px;
+    height: 100px;
+}
+.delete{
+    cursor: pointer;
+    color: red;
+}
+.input, .textarea{
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid green;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+} */
+/* Existing styles */
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.posts {
+    flex: 1;
+}
+
+.post {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0px;
+}
+
+.new {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.imgcontainer {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.img {
+    object-fit: cover;
+}
+
+
+.contactform {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input,
+.textarea {
+    font-size: medium;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    color: #c6c4bb;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #c6c4bb30;
+    box-sizing: border-box;
+}
+.delete{
+    cursor: pointer;
+    color: red;
+}
+.button {
+    padding: 20px;
+    cursor: pointer;
+    background-color: #957056;
+    color: #c6c4bb;
+    border-radius: 0.5rem;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.button:hover {
+    background: #462c23;
+    color: #c6c4bb;
+    border: 0.1rem solid #c6c4bb;
+}
+
+/* Mobile Responsive Styles */
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .titlee {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+    .imgcontainer {
+        height: 300px;
+    }
+
+    .img {
+        height: 300px;
+    }
+
+    .button {
+        margin-left: 0;
+        align-self: center;
+    }
+
+    .input,
+    .textarea {
+        max-width: 100%;
+        margin: 0.5rem 0;
+    }
+}

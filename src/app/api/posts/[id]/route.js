@@ -12,3 +12,18 @@ export const GET = async (request, { params }) => {
     return new NextResponse("Connected to MongoDB failed", { status: 500 });
   }
 };
+
+
+
+
+
+export const DELETE = async (request, { params }) => {
+  const { id } = params;
+  try {
+    await Connect();
+    await Post.findByIdAndDelete(id);
+    return new NextResponse("post has been deleted", { status: 200 });
+  } catch (error) {
+    return new NextResponse("Connected to MongoDB failed", { status: 500 });
+  }
+};
