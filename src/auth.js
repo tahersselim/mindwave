@@ -47,7 +47,7 @@ export const authOptions = {
     signIn: "/dashboard/login",
     error: "/dashboard/login", // Redirect to the login page on error
   },
-  // Callbacks for custom handling (optional)
+  
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       // Custom sign-in logic

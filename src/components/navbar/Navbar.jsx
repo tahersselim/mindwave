@@ -23,7 +23,7 @@ const Navbar = () => {
     <div>
       <nav className={Styles.container}>
         <Link className={Styles.logo} href="/">
-          MindWave
+         <Image src="/mindwave-logo.png" width={45}  height={45}></Image> MindWave
         </Link>
 
         <div className={Styles.links}>
