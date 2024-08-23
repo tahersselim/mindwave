@@ -1,11 +1,11 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
-import CredentialsProvider from "next-auth/providers/credentials";
-import Connect from "./utils/db";
+import Connect from "@/utils/db";
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -22,14 +22,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
 
           const user = await User.findOne({ email: credentials.email });
-          
+
           if (user) {
             const isPasswordCorrect = await bcrypt.compare(
               credentials.password,
               user.password
             );
             if (isPasswordCorrect) {
-              return user; 
+              return user;
             } else {
               throw new Error("Incorrect password");
             }
@@ -44,6 +44,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   pages: {
-    error: "/dashboard/login",
+    signIn: "/dashboard/login",
+    error: "/dashboard/login", // Redirect to the login page on error
   },
-});
+  // Callbacks for custom handling (optional)
+  callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      // Custom sign-in logic
+      return true;
+    },
+    async redirect({ url, baseUrl }) {
+      // Redirect users after login
+      return baseUrl;
+    },
+    async session({ session, user, token }) {
+      // Customize session returned to client
+      return session;
+    },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      // Customize JWT
+      return token;
+    },
+  },
+};
+
+export const { handlers, signIn, signOut, auth } = NextAuth(authOptions);
