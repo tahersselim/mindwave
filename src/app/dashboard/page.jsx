@@ -22,15 +22,47 @@ const Dashboard = () => {
     router?.push("/dashboard/login");
   }
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const title = e.target[0].value;
+  //   const desc = e.target[1].value;
+  //   const img = e.target[2].value;
+  //   const content = e.target[3].value;
+
+  //   try {
+  //     await fetch("/api/posts", {
+  //       method: "POST",
+  //       body: JSON.stringify({
+  //         title,
+  //         desc,
+  //         img,
+  //         content,
+  //         username: session.data.user.name,
+  //       }),
+  //     });
+  //     mutate();
+  //     e.target.reset();
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const title = e.target[0].value;
-    const desc = e.target[1].value;
-    const img = e.target[2].value;
-    const content = e.target[3].value;
+
+    // Sanitize inputs (basic example, use a proper library for better sanitization)
+    const sanitizeInput = (input) => input.replace(/<[^>]*>?/gm, "");
+
+    const title = sanitizeInput(e.target[0].value);
+    const desc = sanitizeInput(e.target[1].value);
+    const img = sanitizeInput(e.target[2].value);
+    const content = sanitizeInput(e.target[3].value);
 
     try {
-      await fetch("/api/posts", {
+      if (!session) {
+        throw new Error("You must be logged in to submit a post");
+      }
+
+      const response = await fetch("/api/posts", {
         method: "POST",
         body: JSON.stringify({
           title,
@@ -40,13 +72,17 @@ const Dashboard = () => {
           username: session.data.user.name,
         }),
       });
-      mutate();
-      e.target.reset();
+
+      if (!response.ok) {
+        throw new Error("Failed to submit post");
+      }
+      mutate(); // Update the UI
+      e.target.reset(); // Reset form after successful submission
     } catch (err) {
       console.log(err);
+      alert("There was an issue submitting your post. Please try again."); // User-friendly error message
     }
   };
-
   const handleDelete = async (id) => {
     try {
       await fetch(`/api/posts/${id}`, {
@@ -90,19 +126,31 @@ const Dashboard = () => {
         <form className={Styles.new} onSubmit={handleSubmit}>
           <h1>Add New Post</h1>
 
-          <input type="text" placeholder="Title" className={Styles.input} />
+          <input
+            type="text"
+            placeholder="Title"
+            className={Styles.input}
+            required
+          />
           <input
             type="text"
             placeholder="Description"
             className={Styles.input}
+            required
           />
-          <input type="text" placeholder="Image" className={Styles.input} />
+          <input
+            type="text"
+            placeholder="Enter Image URL"
+            className={Styles.input}
+            required
+          />
           <textarea
             placeholder="Content"
             className={Styles.textarea}
             id=""
             cols="30"
             rows="10"
+            required
           ></textarea>
           <button className={Styles.button}>Post</button>
         </form>
