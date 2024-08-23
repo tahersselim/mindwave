@@ -51,14 +51,3 @@ export const handler = (req) => {
   return new NextResponse("Method Not Allowed", { status: 405 });
 };
 
-// Use the handler for unsupported methods
-export default function routeHandler(request) {
-  switch (request.method) {
-    case "GET":
-      return GET(request);
-    case "POST":
-      return POST(request);
-    default:
-      return handler(request);
-  }
-}

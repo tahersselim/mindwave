@@ -22,6 +22,7 @@ export const metadata = {
 };
 const Blog = async () => {
   const data = await getData();
+  
   return (
     <div className={Styles.maincontainer}>
       {data.map((item) => (
