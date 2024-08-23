@@ -95,10 +95,12 @@
     background-color: #c6c4bb30;
     box-sizing: border-box;
 }
-.delete{
+
+.delete {
     cursor: pointer;
     color: red;
 }
+
 .button {
     padding: 20px;
     cursor: pointer;
@@ -118,9 +120,11 @@
 /* Mobile Responsive Styles */
 
 @media (max-width: 768px) {
-    .content {
+    .container {
+        display: flex;
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+        gap: 100px;
     }
 
     .title {
@@ -150,4 +154,6 @@
         max-width: 100%;
         margin: 0.5rem 0;
     }
+
+
 }
